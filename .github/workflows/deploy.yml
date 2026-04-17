@@ -33,7 +33,7 @@ jobs:
       - name: Get bucket name
         id: tf_output
         run: |
-          BUCKET=$(terraform output -raw bucket_name | tr -d '\r')
+          BUCKET=$(terraform output -raw bucket_name 2>/dev/null)
           echo "bucket=$BUCKET" >> $GITHUB_OUTPUT
         working-directory: infra/
 
